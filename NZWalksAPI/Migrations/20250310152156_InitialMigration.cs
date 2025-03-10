@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace NZWalksAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class InitalMigrtion : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -64,6 +66,26 @@ namespace NZWalksAPI.Migrations
                         principalTable: "Regions",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Difficulties",
+                columns: new[] { "ID", "Name" },
+                values: new object[,]
+                {
+                    { new Guid("9b3d7cf8-1364-42ab-b126-95ed17f6d210"), "Mediun" },
+                    { new Guid("a1e89c74-726c-4ba8-b3d5-b96824f3c0fa"), "Easy" },
+                    { new Guid("b9803d00-0198-4889-835e-8408c071c280"), "Difficult" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Regions",
+                columns: new[] { "ID", "Code", "Name", "RegionaImageUrl" },
+                values: new object[,]
+                {
+                    { new Guid("06bab480-571b-4b16-a244-12deafe66858"), "BLR", "Banglore", "Banglore-image" },
+                    { new Guid("5945eb86-0fa1-4453-a7b8-4b06d0183dd6"), "DLH", "Delhi", null },
+                    { new Guid("e754b362-08a0-4641-b504-79a6143f78c2"), "PNQ", "Pune", "Pune-image" }
                 });
 
             migrationBuilder.CreateIndex(

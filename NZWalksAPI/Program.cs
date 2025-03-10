@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using NZWalksAPI.Data;
 using NZWalksAPI.Mappings;
 using NZWalksAPI.Repositories;
@@ -11,6 +12,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<NZWalksDbContext>(options =>
+    options.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning)));
 
 builder.Services.AddDbContext<NZWalksDbContext>(options => 
 options.UseSqlServer(builder.Configuration.GetConnectionString("NZWalksConnectionString")));

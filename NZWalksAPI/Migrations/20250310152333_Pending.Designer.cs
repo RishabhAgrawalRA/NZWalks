@@ -12,8 +12,8 @@ using NZWalksAPI.Data;
 namespace NZWalksAPI.Migrations
 {
     [DbContext(typeof(NZWalksDbContext))]
-    [Migration("20250115185506_seed")]
-    partial class seed
+    [Migration("20250310152333_Pending")]
+    partial class Pending
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,12 +47,12 @@ namespace NZWalksAPI.Migrations
                         },
                         new
                         {
-                            ID = new Guid("c99ed6f0-6ead-4524-ae45-8b64c2684e5e"),
+                            ID = new Guid("35252a59-bc03-4d50-9a95-90de85213a28"),
                             Name = "Mediun"
                         },
                         new
                         {
-                            ID = new Guid("8379fff8-05f2-4708-a04a-663d27edb442"),
+                            ID = new Guid("00ab4c6f-3d83-46d8-8286-b2134c761d0f"),
                             Name = "Difficult"
                         });
                 });
@@ -81,21 +81,21 @@ namespace NZWalksAPI.Migrations
                     b.HasData(
                         new
                         {
-                            ID = new Guid("8e317022-8c07-4584-b0e7-b57355f14c28"),
+                            ID = new Guid("e6dc1a49-2bd9-467f-b4f2-b3da6bcef793"),
                             Code = "PNQ",
                             Name = "Pune",
                             RegionaImageUrl = "Pune-image"
                         },
                         new
                         {
-                            ID = new Guid("768e09e9-e559-4089-9a39-c4c8af226b3e"),
+                            ID = new Guid("e7f25890-39c7-4426-8d65-61bea8c806d7"),
                             Code = "BLR",
                             Name = "Banglore",
                             RegionaImageUrl = "Banglore-image"
                         },
                         new
                         {
-                            ID = new Guid("9771fff1-0a80-4ee9-9fdd-97c951c3d893"),
+                            ID = new Guid("eb21bf9a-daea-4edb-a3e6-d44f1060bd4c"),
                             Code = "DLH",
                             Name = "Delhi"
                         });

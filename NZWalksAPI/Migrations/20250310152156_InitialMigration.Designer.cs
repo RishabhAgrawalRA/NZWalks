@@ -12,8 +12,8 @@ using NZWalksAPI.Data;
 namespace NZWalksAPI.Migrations
 {
     [DbContext(typeof(NZWalksDbContext))]
-    [Migration("20250109131855_Inital Migrtion")]
-    partial class InitalMigrtion
+    [Migration("20250310152156_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,23 @@ namespace NZWalksAPI.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Difficulties");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = new Guid("a1e89c74-726c-4ba8-b3d5-b96824f3c0fa"),
+                            Name = "Easy"
+                        },
+                        new
+                        {
+                            ID = new Guid("9b3d7cf8-1364-42ab-b126-95ed17f6d210"),
+                            Name = "Mediun"
+                        },
+                        new
+                        {
+                            ID = new Guid("b9803d00-0198-4889-835e-8408c071c280"),
+                            Name = "Difficult"
+                        });
                 });
 
             modelBuilder.Entity("NZWalksAPI.Models.Domain.Region", b =>
@@ -60,6 +77,28 @@ namespace NZWalksAPI.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Regions");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = new Guid("e754b362-08a0-4641-b504-79a6143f78c2"),
+                            Code = "PNQ",
+                            Name = "Pune",
+                            RegionaImageUrl = "Pune-image"
+                        },
+                        new
+                        {
+                            ID = new Guid("06bab480-571b-4b16-a244-12deafe66858"),
+                            Code = "BLR",
+                            Name = "Banglore",
+                            RegionaImageUrl = "Banglore-image"
+                        },
+                        new
+                        {
+                            ID = new Guid("5945eb86-0fa1-4453-a7b8-4b06d0183dd6"),
+                            Code = "DLH",
+                            Name = "Delhi"
+                        });
                 });
 
             modelBuilder.Entity("NZWalksAPI.Models.Domain.Walk", b =>
