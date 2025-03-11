@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NZWalksAPI.CustomActionFilters;
 using NZWalksAPI.Data;
 using NZWalksAPI.Models.Domain;
 using NZWalksAPI.Models.DTO;
@@ -9,7 +10,7 @@ using NZWalksAPI.Repositories;
 
 namespace NZWalksAPI.Controllers
 {
-    //https://localhost:5229/api/regions
+    //https://localhost:3030/api/regions
     [Route("[controller]")]
     [ApiController]
     public class RegionsController : ControllerBase
@@ -79,8 +80,9 @@ namespace NZWalksAPI.Controllers
 
         //Create Region
         [HttpPost]
+        [ValidateModel]
         public async Task<IActionResult> CreateRegion([FromBody] AddRegionRequestDTO addRegionRequestDTO)
-        {
+    {
             //Map DTO to Domain Model
             var regionDomain = mapper.Map<Region>(addRegionRequestDTO);
             /*
@@ -111,6 +113,7 @@ namespace NZWalksAPI.Controllers
         //Update Region
         [HttpPut]
         [Route("{id:Guid}")]
+        [ValidateModel]
         public async Task<IActionResult> UpdateRegion([FromRoute] Guid id, [FromBody] UpdateRegionRequestDTO updateRegionRequestDTO)
         {
             //Map DTO to Domain Model
