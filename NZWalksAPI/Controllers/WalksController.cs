@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NZWalksAPI.CustomActionFilters;
@@ -11,6 +12,7 @@ namespace NZWalksAPI.Controllers
     //api/walks
     [Route("[controller]")]
     [ApiController]
+    [Authorize]
     public class WalksController : ControllerBase
     {
         public IWalkRepository walkRepository { get; }
