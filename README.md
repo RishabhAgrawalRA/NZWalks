@@ -1,0 +1,1 @@
+This project is created for learning amnd practise purpose by me while watching this course (Use C# and Build an ASP.NET Core Web API with Entity Framework Core, SQL Server, Authentication, Authorization | .NET8).
