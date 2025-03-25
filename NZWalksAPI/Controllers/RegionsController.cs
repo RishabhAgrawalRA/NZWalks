@@ -13,7 +13,7 @@ using System.Text.Json;
 namespace NZWalksAPI.Controllers
 {
     //https://localhost:3030/api/regions
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class RegionsController : ControllerBase
     {
@@ -64,7 +64,7 @@ namespace NZWalksAPI.Controllers
         //Get Region by Id
         [HttpGet]
         [Route("{id:guid}")]
-        [Authorize(Roles = "Reader,Writer")]
+        //[Authorize(Roles = "Reader,Writer")]
         public async Task<IActionResult> GetRegionById([FromRoute] Guid id)
         {
             //Get Data from DB - Domain Model
@@ -92,7 +92,7 @@ namespace NZWalksAPI.Controllers
         //Create Region
         [HttpPost]
         [ValidateModel]
-        [Authorize(Roles = "Writer")]
+        //[Authorize(Roles = "Writer")]
         public async Task<IActionResult> CreateRegion([FromBody] AddRegionRequestDTO addRegionRequestDTO)
     {
             //Map DTO to Domain Model
@@ -126,7 +126,7 @@ namespace NZWalksAPI.Controllers
         [HttpPut]
         [Route("{id:Guid}")]
         [ValidateModel]
-        [Authorize(Roles = "Writer")]
+        //[Authorize(Roles = "Writer")]
         public async Task<IActionResult> UpdateRegion([FromRoute] Guid id, [FromBody] UpdateRegionRequestDTO updateRegionRequestDTO)
         {
             //Map DTO to Domain Model
@@ -161,7 +161,7 @@ namespace NZWalksAPI.Controllers
         //Delete Region
         [HttpDelete]
         [Route("{id:guid}")]
-        [Authorize(Roles = "Writer")]
+        //[Authorize(Roles = "Writer")]
         public async Task<IActionResult> DeleteRegion([FromRoute] Guid id)
         {
             //Check Region exists

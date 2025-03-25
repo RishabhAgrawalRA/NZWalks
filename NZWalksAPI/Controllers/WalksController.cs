@@ -10,7 +10,7 @@ using NZWalksAPI.Repositories;
 namespace NZWalksAPI.Controllers
 {
     //api/walks
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     [Authorize]
     public class WalksController : ControllerBase
